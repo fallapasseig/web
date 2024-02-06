@@ -32,6 +32,10 @@ export default defineConfig({
   output: 'static',
   outDir: 'docs',
 
+  build: {
+    assets: 'astro-assets'
+  },
+
   integrations: [
     tailwind({
       applyBaseStyles: false,
