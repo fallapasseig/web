@@ -30,6 +30,7 @@ export default defineConfig({
   trailingSlash: SITE.trailingSlash ? 'always' : 'never',
 
   output: 'static',
+  outDir: 'docs',
 
   integrations: [
     tailwind({
