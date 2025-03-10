@@ -16,7 +16,11 @@ export const headerData = {
         {
           text: 'Turisme 2025 anglès',
           href: getPermalink('/turisme-2025-en'),
-        }
+        },
+        {
+          text: 'Turisme 2025 francès',
+          href: getPermalink('/turisme-2025-fr'),
+        },
       ],
     },
   ]
