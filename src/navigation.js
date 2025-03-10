@@ -6,12 +6,16 @@ export const headerData = {
       text: 'Contingut',
       links: [
         {
-          text: '2024',
+          text: 'Llibret 2024',
           href: getPermalink('/llibret-2024'),
         },
         {
           text: 'Turisme 2025 castellà',
-          href: getPermalink('/turisme-2025-spanish'),
+          href: getPermalink('/turisme-2025-es'),
+        },
+        {
+          text: 'Turisme 2025 anglès',
+          href: getPermalink('/turisme-2025-en'),
         }
       ],
     },
