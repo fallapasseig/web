@@ -6,8 +6,8 @@ export const headerData = {
       text: 'Contingut',
       links: [
         {
-          text: 'Llibret 2024',
-          href: getPermalink('/llibret-2024'),
+          text: 'Turisme 2025 valencià',
+          href: getPermalink('/turisme-2025-va'),
         },
         {
           text: 'Turisme 2025 castellà',
@@ -24,6 +24,10 @@ export const headerData = {
         {
           text: 'Turisme 2025 alemany',
           href: getPermalink('/turisme-2025-de'),
+        },
+        {
+          text: 'Llibret 2024',
+          href: getPermalink('/llibret-2024'),
         },
       ],
     },
