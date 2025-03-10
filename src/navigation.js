@@ -9,6 +9,10 @@ export const headerData = {
           text: '2024',
           href: getPermalink('/llibret-2024'),
         },
+        {
+          text: 'Turisme 2025 castellà',
+          href: getPermalink('/turisme-2025-spanish'),
+        }
       ],
     },
   ]
