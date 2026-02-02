@@ -10,7 +10,7 @@ metadata:
   title:
     default: Falla Passeig
     template: '%s — Falla Passeig'
-  description: "Falla Passeig, la falla més activa de tota la Valldigna. Notícies, activitats, fotos i vídeos de la falla de Passeig de la Valldigna."
+  description: 'Falla Passeig, la falla més activa de tota la Valldigna. Notícies, activitats, fotos i vídeos de la falla de Passeig de la Valldigna.'
   robots:
     index: true
     follow: true

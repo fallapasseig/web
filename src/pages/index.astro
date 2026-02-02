@@ -1,23 +1,30 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
-import Hero from '~/components/widgets/Hero.astro'
+import Hero from '~/components/widgets/Hero.astro';
 
 const metadata = {
   title: 'Falla Passeig | Tavernes de la Valldigna',
   ignoreTitleTemplate: true,
 };
 ---
-<Layout metadata={metadata}>
 
+<Layout metadata={metadata}>
   <!-- Features Widget *************** -->
   <Hero
     actions={[
       {
         variant: 'primary',
+        text: 'Llibret 2026',
+        href: '/web/llibret-2026',
+        icon: 'tabler:pdf',
+      },
+      {
+        variant: 'primary',
         text: 'Llibret 2025',
         href: '/web/llibret-2025',
         icon: 'tabler:pdf',
-      },{
+      },
+      {
         variant: 'primary',
         text: 'Llibret 2024',
         href: '/web/llibret-2024',
@@ -26,21 +33,21 @@ const metadata = {
     ]}
     image={{ src: '~/assets/images/representants.jpg', alt: 'Representants Falla Passeig 2025' }}
   >
-
     <Fragment slot="title">
       Falla Passeig de <span class="text-accent dark:text-white highlight">Tavernes de la Valldigna</span>
     </Fragment>
 
     <Fragment slot="subtitle">
       <span class="hidden sm:inline">
-        La comissió Passeig és una associació fallera de la localitat valenciana de Tavernes de la Valldigna. Va ser fundada l'any 1984 i actualment, té una comissió de més de 500 fallers i falleres.
+        La comissió Passeig és una associació fallera de la localitat valenciana de Tavernes de la Valldigna. Va ser
+        fundada l'any 1984 i actualment, té una comissió de més de 500 fallers i falleres.
         <br />
         <br />
-        </span>
+      </span>
       <span class="hidden sm:inline">
-El nom de la comissió fa referència al lloc on ha plantat sempre les seues falles, al Passeig País Valencià, situat al centre de la població. No obstant això, el seu casal es troba al Carrer Nou.
-        </span>
+        El nom de la comissió fa referència al lloc on ha plantat sempre les seues falles, al Passeig País Valencià,
+        situat al centre de la població. No obstant això, el seu casal es troba al Carrer Nou.
+      </span>
     </Fragment>
   </Hero>
-
 </Layout>

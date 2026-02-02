@@ -8,7 +8,8 @@ export const headerData = {
         {
           text: 'Llibret 2025',
           href: getPermalink('/llibret-2025'),
-        },{
+        },
+        {
           text: 'Turisme 2025 valencià',
           href: getPermalink('/turisme-2025-va'),
         },
@@ -34,15 +35,12 @@ export const headerData = {
         },
       ],
     },
-  ]
+  ],
 };
 
 export const footerData = {
-  links: [
-
-  ],
-  secondaryLinks: [
-  ],
+  links: [],
+  secondaryLinks: [],
   socialLinks: [
     { ariaLabel: 'X', icon: 'tabler:brand-x', href: 'https://twitter.com/FallaPasseig' },
     { ariaLabel: 'Instagram', icon: 'tabler:brand-instagram', href: 'https://www.instagram.com/fallapasseigtavernes/' },
