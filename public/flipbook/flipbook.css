@@ -1,0 +1,93 @@
+:root {
+  --page-duration: 0.6s; /* Slightly faster for snappy feel */
+  --page-easing: ease-in-out;
+}
+
+.flipbook-stage {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 2500px; /* Increased perspective for less distortion on edges */
+  overflow: hidden;
+  background-color: #333; /* Dark background mainly for demo/default */
+}
+
+.flipbook-book {
+  position: absolute;
+  flex-shrink: 0;
+  /* Size set by JS */
+  transform-style: preserve-3d;
+  transition: transform var(--page-duration) var(--page-easing);
+  transform-origin: center center;
+}
+
+.flipbook-page {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 50%;
+  height: 100%;
+  transform-origin: left center;
+  transform-style: preserve-3d;
+  transition: transform var(--page-duration) var(--page-easing), z-index 0s calc(var(--page-duration) / 2);
+  cursor: pointer;
+  background-color: #f8f8f8;
+}
+
+.flipbook-page-front,
+.flipbook-page-back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.05); /* Lighter shadow */
+  background-size: 100% 100%; /* Stretch fit */
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.flipbook-page-back {
+  transform: rotateY(180deg);
+}
+
+.flipbook-page.flipped {
+  transform: rotateY(-180deg);
+}
+
+/* Shadow depth effect */
+.flipbook-page::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: opacity var(--page-duration);
+  pointer-events: none;
+  background: linear-gradient(to right, rgba(0,0,0,0.15) 0%, transparent 10%);
+  opacity: 0;
+  z-index: 2;
+}
+
+/* Shadow when flipped */
+.flipbook-page.flipped::before {
+  background: linear-gradient(to left, rgba(0,0,0,0.15) 0%, transparent 10%);
+}
+
+.flipbook-page.flipped::before,
+.flipbook-page:not(.flipped)::before {
+    opacity: 1; 
+}
+/* Wait, logic for shadow opacity is complex.
+   Ideally, inner spine shadow.
+   Sheet Unflipped:
+     Front: Spine is Left. Shadow on Left.
+     Back: Hidden.
+   Sheet Flipped:
+     Back: Spine is Right. Shadow on Right.
+     Front: Hidden.
+*/

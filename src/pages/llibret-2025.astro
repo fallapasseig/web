@@ -5,19 +5,68 @@ const metadata = {
   title: 'Llibret 2025 - Arribar a bon port',
 };
 ---
-
-<link href="/web/dflip/css/dflip.min.css" rel="stylesheet" type="text/css" />
-<link href="/web/dflip/css/themify-icons.min.css" rel="stylesheet" type="text/css" />
-
-<Layout metadata={metadata}>
-  <div
-    class="_df_book"
-    height="auto"
-    webgl="true"
-    source="https://media.githubusercontent.com/media/fallapasseig/static/main/2025-llibret.pdf"
-    id="df_manual_book"
-  >
+<Layout {metadata}>
+  <div id="stage-container">
+    <div id="my-flipbook"></div>
   </div>
-  <script src="/web/dflip/js/libs/jquery.min.js" type="text/javascript"></script>
-  <script src="/web/dflip/js/dflip.min.js" type="text/javascript"></script>
+
+  <style>
+    #stage-container {
+      width: 100%;
+      height: calc(100vh - 80px); /* Adjust based on header height if needed */
+      position: relative;
+      background: #f0f0f0;
+      overflow: hidden;
+    }
+    #my-flipbook {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+
+  <script>
+    import { Flipbook } from '../../public/flipbook/flipbook.js';
+
+    const baseUrl = 'https://media.githubusercontent.com/media/fallapasseig/static/main/llibret-2025/';
+    const imageFiles = [
+      '0000.jpg', '0001.png', '0002.png', '0003.png', '0004.png', '0005.png', '0006.png', '0007.png', '0008.png', '0009.png',
+      '0010.png', '0011.png', '0012.png', '0013.png', '0014.png', '0015.png', '0016.png', '0017.png', '0018.png', '0019.png',
+      '0020.png', '0021.png', '0022.png', '0023.jpg', '0024.jpg', '0025.png', '0026.png', '0027.png', '0028.png', '0029.png',
+      '0030.png', '0031.png', '0032.png', '0033.png', '0034.png', '0035.jpg', '0036.jpg', '0037.jpg', '0038.jpg', '0039.png',
+      '0040.png', '0041.png', '0042.jpg', '0043.png', '0044.png', '0045.png', '0046.jpg', '0047.png', '0048.jpg', '0049.png',
+      '0050.png', '0051.png', '0052.png', '0053.png', '0054.png', '0055.png', '0056.png', '0057.png', '0058.png', '0059.png',
+      '0060.png', '0061.png', '0062.png', '0063.png', '0064.png', '0065.png', '0066.png', '0067.png', '0068.png', '0069.png',
+      '0070.png', '0071.png', '0072.png', '0073.png', '0074.jpg', '0075.jpg', '0076.png', '0077.png', '0078.png', '0079.png',
+      '0080.jpg', '0081.png', '0082.png', '0083.png', '0084.png', '0085.png', '0086.png', '0087.png', '0088.png', '0089.png',
+      '0090.png', '0091.png', '0092.png', '0093.png', '0094.png', '0095.png', '0096.png', '0097.png', '0098.png', '0099.png',
+      '0100.png', '0101.png', '0102.png', '0103.png', '0104.png', '0105.png', '0106.png', '0107.jpg', '0108.png', '0109.png',
+      '0110.png', '0111.png', '0112.png', '0113.png', '0114.png', '0115.png', '0116.jpg', '0117.png', '0118.jpg', '0119.png',
+      '0120.jpg', '0121.png', '0122.png', '0123.png', '0124.jpg', '0125.png', '0126.jpg', '0127.png', '0128.png', '0129.png',
+      '0130.jpg', '0131.png', '0132.jpg', '0133.png', '0134.png', '0135.png', '0136.png', '0137.png', '0138.jpg', '0139.png',
+      '0140.png', '0141.jpg', '0142.jpg', '0143.jpg', '0144.jpg', '0145.jpg', '0146.jpg', '0147.jpg', '0148.jpg', '0149.jpg',
+      '0150.jpg', '0151.jpg', '0152.jpg', '0153.jpg', '0154.jpg', '0155.jpg', '0156.jpg', '0157.jpg', '0158.jpg', '0159.jpg',
+      '0160.jpg', '0161.jpg', '0162.jpg', '0163.jpg', '0164.jpg', '0165.jpg', '0166.jpg', '0167.jpg', '0168.jpg', '0169.jpg',
+      '0170.jpg', '0171.jpg', '0172.jpg', '0173.jpg', '0174.jpg', '0175.jpg', '0176.jpg', '0177.jpg', '0178.jpg', '0179.jpg',
+      '0180.jpg', '0181.png', '0182.png', '0183.jpg', '0184.jpg', '0185.jpg', '0186.jpg', '0187.jpg', '0188.jpg', '0189.png',
+      '0190.png', '0191.png', '0192.png', '0193.jpg', '0194.jpg', '0195.jpg', '0196.jpg', '0197.jpg', '0198.jpg', '0199.png',
+      '0200.jpg', '0201.jpg', '0202.png', '0203.png', '0204.png', '0205.png', '0206.png', '0207.png', '0208.png', '0209.png',
+      '0210.png', '0211.png', '0212.png', '0213.png', '0214.png', '0215.png', '0216.png', '0217.png', '0218.png', '0219.png',
+      '0220.png', '0221.png', '0222.png', '0223.png', '0224.png', '0225.png', '0226.png', '0227.png', '0228.png', '0229.png',
+      '0230.png', '0231.png', '0232.png', '0233.png', '0234.jpg', '0235.png', '0236.jpg', '0237.jpg', '0238.png', '0239.png',
+      '0240.jpg', '0241.jpg', '0242.png', '0243.jpg', '0244.jpg', '0245.png', '0246.jpg', '0247.png', '0248.png', '0249.png',
+      '0250.png', '0251.jpg', '0252.png', '0253.png', '0254.png', '0255.jpg', '0256.png', '0257.jpg', '0258.jpg', '0259.png',
+      '0260.jpg', '0261.png', '0262.png', '0263.png', '0264.png', '0265.jpg', '0266.png', '0267.jpg'
+    ];
+
+    const images = imageFiles.map(file => baseUrl + file);
+
+    const book = new Flipbook({
+      target: '#my-flipbook',
+      images: images,
+      duration: 600,
+      singlePage: 'auto'
+    });
+
+    (window as any).book = book;
+  </script>
 </Layout>
