@@ -1,0 +1,80 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import HeroText from '~/components/widgets/HeroText.astro';
+import Content from '~/components/widgets/Content.astro';
+
+const metadata = {
+  title: 'Història - Falla Passeig',
+};
+---
+
+<Layout metadata={metadata}>
+  <HeroText tagline="Història" title="Fundació de la Falla" />
+
+  <Content
+    isReversed
+    image={{
+      src: '~/assets/images/monument-2025.png',
+      alt: 'Monument Faller',
+    }}
+  >
+    <Fragment slot="content">
+      <p>
+        La fundació de la Falla Passeig de Tavernes de la Valldigna és un relat que es perd entre l’esforç i la il·lusió
+        d’un grup de veïns del poble que, a finals del segle XX, somiaven amb seguir cultivant a la seua localitat
+        l’esperit festiu i cultural de les Falles.
+      </p>
+      <br />
+      <p>
+        Tot va començar l’any 1984, quan un grup d’amics i veïns que solien reunir-se al Passeig del País Valencià van
+        decidir que Tavernes necessitava una falla que representara la seua gent i donara vida a la cultura popular de la
+        zona. Aquestes persones, unides per la passió per les tradicions valencianes, van organitzar les primeres
+        reunions en les cases particulars i els bars de la zona, on compartien idees i projectes per a fer realitat el
+        seu somni.
+      </p>
+    </Fragment>
+  </Content>
+
+  <Content
+    image={{
+      src: '~/assets/images/imatge-historia.png',
+      alt: 'Imatge històrica',
+    }}
+  >
+    <Fragment slot="content">
+      <p>
+        La primera fita important va ser la tria del nom de la comissió, “Falla Passeig de Tavernes de la Valldigna”, en
+        honor al passeig que era el cor del barri i símbol de convivència. Aquest nom evocava l’esperit de comunitat i
+        l’orgull local que tots compartien.
+      </p>
+      <br />
+      <p>
+        Els primers anys no van ser senzills, ja que es tractava d’una comissió nova que necessitava fer-se un lloc entre
+        les tradicions i la vida cultural de Tavernes. L’any 1985, Tavernes de la Valldigna va contemplar emocionada com
+        s’alçava el primer monument faller al Passeig, i amb ell naixia una tradició que perdura fins als nostres dies.
+      </p>
+    </Fragment>
+  </Content>
+
+  <Content
+    isReversed
+    image={{
+      src: '~/assets/images/representants-2025.jpg',
+      alt: 'Representants Falla Passeig',
+    }}
+  >
+    <Fragment slot="content">
+      <p>
+        Des d’aquell moment, la Falla Passeig es va consolidar com una de les comissions més destacades de la localitat.
+        Amb el temps, van ampliar les seues activitats amb concursos, cavalcades, i actes culturals, sempre fomentant la
+        participació del veïnat i mantenint viu l’esperit de germanor.
+      </p>
+      <br />
+      <p>
+        Hui, la Falla Passeig de Tavernes de la Valldigna és un orgull per al poble, un reflex de la identitat i les
+        tradicions que els fundadors van voler preservar. Cada any, la flama de la festa es manté encesa gràcies a
+        l’esforç i la dedicació d’una comunitat unida per l’amor a la cultura valenciana.
+      </p>
+    </Fragment>
+  </Content>
+</Layout>

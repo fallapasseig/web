@@ -1,0 +1,109 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import HeroText from '~/components/widgets/HeroText.astro';
+import Features from '~/components/widgets/Features.astro';
+
+const metadata = {
+  title: 'La Falla amb els ODS',
+};
+
+const items = [
+  {
+    title: '1. Fi de la pobresa',
+    description: 'Col·laborar en campanyes de recollida d’aliments i donar suport a associacions com Cáritas i Creu Roja.',
+    icon: 'tabler:check',
+  },
+  {
+    title: '2. Fam zero',
+    description: 'Evitar el malbaratament d’aliments, adquirir productes de proximitat i fomentar el consum local.',
+    icon: 'tabler:check',
+  },
+  {
+    title: '3. Salut i benestar',
+    description: 'Promoure hàbits saludables, consum responsable d’alcohol, prohibir fumar al casal i fomentar l’esport.',
+    icon: 'tabler:check',
+  },
+  {
+    title: '4. Educació de qualitat',
+    description: 'Fomentar la lectura i l’escriptura amb la publicació del llibret faller.',
+    icon: 'tabler:check',
+  },
+  {
+    title: '5. Igualtat de gènere',
+    description: 'Participació igualitària en càrrecs fallers i campanyes contra la violència de gènere (Punt Violeta).',
+    icon: 'tabler:check',
+  },
+  {
+    title: '6. Aigua neta i sanejament',
+    description: 'Reduir el consum d’aigua en la neteja de casals i evitar el seu malbaratament.',
+    icon: 'tabler:check',
+  },
+  {
+    title: '7. Energia assequible i no contaminant',
+    description: 'Comprar de segona mà i reparar objectes per allargar-ne la vida útil.',
+    icon: 'tabler:check',
+  },
+  {
+    title: '8. Treball digne i creixement econòmic',
+    description: 'Donar suport als comerços locals i fomentar pràctiques laborals justes.',
+    icon: 'tabler:check',
+  },
+  {
+    title: '9. Indústria, innovació i infraestructures',
+    description: 'Impulsar la digitalització per reduir l’ús de paper i ajudar en l’accés a les noves tecnologies.',
+    icon: 'tabler:check',
+  },
+  {
+    title: '10. Reducció de les desigualtats',
+    description: 'Garantir activitats accessibles per a tothom i promoure la inclusió de totes les cultures.',
+    icon: 'tabler:check',
+  },
+  {
+    title: '11. Ciutats i comunitats sostenibles',
+    description: 'Minimitzar l’impacte ambiental dels actes i respectar l’espai i mobiliari públic.',
+    icon: 'tabler:check',
+  },
+  {
+    title: '12. Producció i consum responsables',
+    description: 'Evitar plàstics d’un sol ús, promoure gots reutilitzables i reutilitzar decoracions.',
+    icon: 'tabler:check',
+  },
+  {
+    title: '13. Acció pel clima',
+    description: 'Promoure el reciclatge amb contenidors senyalitzats i ús correcte de les papereres.',
+    icon: 'tabler:check',
+  },
+  {
+    title: '14. Vida submarina',
+    description: 'Reduir l’ús de plàstics i recollir residus a les platges.',
+    icon: 'tabler:check',
+  },
+  {
+    title: '15. Vida dels ecosistemes terrestres',
+    description: 'Reduir l’ús de paper i recollir el fem en paratges naturals.',
+    icon: 'tabler:check',
+  },
+  {
+    title: '16. Pau, justícia i institucions sòlides',
+    description: 'Fomentar el respecte i la convivència, evitant conflictes i denunciant discriminacions.',
+    icon: 'tabler:check',
+  },
+  {
+    title: '17. Aliances per a aconseguir els objectius',
+    description: 'Col·laborar per unes falles més sostenibles i difondre els ODS per conscienciar la comissió.',
+    icon: 'tabler:check',
+  },
+];
+---
+
+<Layout metadata={metadata}>
+  <HeroText tagline="Sostenibilitat" title="La Falla amb els ODS" subtitle="Accions que els fallers i falleres podem fer per contribuir als 17 Objectius de Desenvolupament Sostenible (ODS) de l'ONU." />
+
+  <Features
+    id="ods"
+    title="Objectius de Desenvolupament Sostenible"
+    subtitle="Amb xicotetes accions, cadascú de nosaltres pot aportar el seu granet d'arena per unes falles més responsables i solidàries."
+    items={items}
+    columns={3}
+  />
+</Layout>
