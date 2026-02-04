@@ -139,16 +139,12 @@ const imageFiles = [
       var $viewport = $('#flipbook-viewport');
       var BASE_URL = 'https://media.githubusercontent.com/media/fallapasseig/static/main/llibret-2025/';
 
-      // Detect actual image aspect ratio before initializing
+      // Load first image to get its native dimensions for turn.js init
       var probe = new Image();
       probe.onload = function () {
-        var ratio = probe.naturalWidth / probe.naturalHeight;
-        var PAGE_HEIGHT = 2000;
-        var PAGE_WIDTH = Math.round(PAGE_HEIGHT * ratio);
-        initFlipbook(PAGE_WIDTH * 2, PAGE_HEIGHT);
+        initFlipbook(probe.naturalWidth * 2, probe.naturalHeight);
       };
       probe.onerror = function () {
-        // Fallback: assume portrait A4-ish ratio
         initFlipbook(2828, 2000);
       };
       probe.src = BASE_URL + '0000.jpg';
@@ -203,7 +199,14 @@ const imageFiles = [
 
         var scaleX = vW / bW;
         var scaleY = vH / bH;
-        var scale = Math.min(scaleX, scaleY) * 0.92;
+        var scale;
+
+        if (mode === 'single') {
+          // bW is the full double-spread width; one visible page is half
+          scale = vW / (bW / 2);
+        } else {
+          scale = Math.min(scaleX, scaleY) * 0.92;
+        }
 
         $container.css({
           width: bW,
