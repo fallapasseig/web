@@ -450,7 +450,7 @@ const imageFiles = [
 
         if (mode === 'single') {
           // bW is the full double-spread width; one visible page is half
-          scale = vW / (bW / 2);
+          scale = Math.min(vW / (bW / 2), vH / bH) * 0.92;
         } else {
           scale = Math.min(scaleX, scaleY) * 0.92;
         }
