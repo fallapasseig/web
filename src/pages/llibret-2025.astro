@@ -138,6 +138,8 @@ const imageFiles = [
       var $container = $('#flipbook-container');
       var $viewport = $('#flipbook-viewport');
       var BASE_URL = 'https://media.githubusercontent.com/media/fallapasseig/static/main/llibret-2025/';
+      var isMobile = 'ontouchstart' in window;
+      var programmaticTurn = false;
 
       // Load first image to get its native dimensions for turn.js init
       var probe = new Image();
@@ -160,6 +162,12 @@ const imageFiles = [
           duration: 800,
           display: $(window).width() < 900 ? 'single' : 'double',
           when: {
+            turning: function (e) {
+              if (isMobile && !programmaticTurn) {
+                e.preventDefault();
+              }
+              programmaticTurn = false;
+            },
             turned: function () {
               updatePageDisplay();
               updateButtons();
@@ -221,19 +229,23 @@ const imageFiles = [
       // Navigation buttons
       $('#prev-btn').on('click', function (e) {
         e.stopPropagation();
+        programmaticTurn = true;
         $book.turn('previous');
       });
 
       $('#next-btn').on('click', function (e) {
         e.stopPropagation();
+        programmaticTurn = true;
         $book.turn('next');
       });
 
       // Keyboard navigation
       $(document).on('keydown', function (e) {
         if (e.keyCode === 37) {
+          programmaticTurn = true;
           $book.turn('previous');
         } else if (e.keyCode === 39) {
+          programmaticTurn = true;
           $book.turn('next');
         }
       });
@@ -258,6 +270,7 @@ const imageFiles = [
           var dy = e.changedTouches[0].clientY - touchStartY;
 
           if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 50) {
+            programmaticTurn = true;
             if (dx > 0) {
               $book.turn('previous');
             } else {
