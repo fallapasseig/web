@@ -1,0 +1,48 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import HeroText from '~/components/widgets/HeroText.astro';
+
+const metadata = {
+  title: 'Turisme - Falla Passeig',
+};
+
+const turisme = [
+  { lang: 'Valencià', href: '/web/turisme-2025-va', flag: '🏠' },
+  { lang: 'Castellà', href: '/web/turisme-2025-es', flag: '🇪🇸' },
+  { lang: 'English', href: '/web/turisme-2025-en', flag: '🇬🇧' },
+  { lang: 'Français', href: '/web/turisme-2025-fr', flag: '🇫🇷' },
+  { lang: 'Deutsch', href: '/web/turisme-2025-de', flag: '🇩🇪' },
+];
+---
+
+<Layout metadata={metadata}>
+  <HeroText tagline="Falla Passeig" title="Turisme">
+    <Fragment slot="content">
+      <div class="max-w-3xl mx-auto">
+        <p class="hidden sm:block mb-6 text-justify">
+          En aquest apartat trobareu informació turística sobre la nostra falla i la localitat de Tavernes de la
+          Valldigna en diversos idiomes. Esperem que vos siga d'utilitat per a conéixer millor la nostra comissió i el
+          nostre poble.
+        </p>
+      </div>
+    </Fragment>
+  </HeroText>
+
+  <section class="max-w-5xl mx-auto px-4 py-8">
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
+      {
+        turisme.map((t) => (
+          <a
+            href={t.href}
+            class="group flex flex-col items-center p-4 rounded-lg border border-gray-200 dark:border-gray-800 shadow hover:shadow-lg transition-shadow duration-300"
+          >
+            <span class="text-4xl mb-2">{t.flag}</span>
+            <span class="text-sm font-semibold text-gray-900 dark:text-white group-hover:text-accent transition-colors">
+              {t.lang}
+            </span>
+          </a>
+        ))
+      }
+    </div>
+  </section>
+</Layout>

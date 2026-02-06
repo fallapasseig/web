@@ -20,15 +20,15 @@ const metadata = {
       // },
       {
         variant: 'primary',
-        text: 'Programació 2026',
-        href: '/web/programacio-2026',
-        icon: 'tabler:calendar',
+        text: 'Representants',
+        href: '/web/representants',
+        icon: 'tabler:users',
       },
       {
         variant: 'primary',
-        text: 'Llibret 2025',
-        href: '/web/llibret-2025',
-        icon: 'tabler:book',
+        text: 'Llibrets',
+        href: '/web/llibrets',
+        icon: 'tabler:books',
       },
       {
         variant: 'secondary',
@@ -38,28 +38,52 @@ const metadata = {
       },
       {
         variant: 'secondary',
+        text: 'Programació 2026',
+        href: '/web/programacio-2026',
+        icon: 'tabler:calendar',
+      },
+      {
+        variant: 'secondary',
         text: 'ODS',
         href: '/web/ods',
         icon: 'tabler:world',
+      },
+      {
+        variant: 'secondary',
+        text: 'Turisme',
+        href: '/web/turisme',
+        icon: 'tabler:map',
       },
     ]}
     image={{ src: '~/assets/images/representants.jpg', alt: 'Representants Falla Passeig 2025' }}
   >
     <Fragment slot="title">
-      Falla Passeig de <span class="text-accent dark:text-white highlight">Tavernes de la Valldigna</span>
+      <span class="dark:text-white light:text-accent highlight">Falla Passeig</span>
+      <br />
+      <span class="text-3xl">Tavernes de la Valldigna</span>
     </Fragment>
 
     <Fragment slot="subtitle">
-      <span class="hidden sm:inline">
-        La comissió Passeig és una associació fallera de la localitat valenciana de Tavernes de la Valldigna. Va ser
-        fundada l'any 1984 i actualment, té una comissió de més de 500 fallers i falleres.
-        <br />
-        <br />
-      </span>
-      <span class="hidden sm:inline">
-        El nom de la comissió fa referència al lloc on ha plantat sempre les seues falles, al Passeig País Valencià,
-        situat al centre de la població. No obstant això, el seu casal es troba al Carrer Nou.
-      </span>
+      <p class="hidden sm:block mb-6 text-justify">
+        La comissió Falla Passeig és una associació fallera de la localitat valenciana de Tavernes de la Valldigna, amb
+        una llarga trajectòria dins del món faller. Va ser fundada l'any 1984 i, des d'aleshores, ha crescut de manera
+        constant fins a convertir-se en una de les comissions més nombroses i actives del municipi. Actualment, la falla
+        compta amb prop de 550 falleres i fallers, que viuen la festa amb il·lusió, compromís i un fort sentiment de
+        pertinença.
+      </p>
+      <p class="hidden sm:block mb-6 text-justify">
+        El nom de la comissió fa referència a l'espai on tradicionalment s'han plantat els seus monuments: el Passeig
+        País Valencià, situat al centre de la població, un lloc emblemàtic que ha sigut testimoni de l'evolució de la
+        falla al llarg dels anys. Tot i això, el casal faller es trova al carrer Nou, que és el punt de trobada habitual
+        de la comissió i l'espai on es comparteixen treball, convivència i molts dels moments més especials del
+        calendari faller.
+      </p>
+      <p class="hidden sm:block mb-6 text-justify">
+        La Falla Passeig destaca per la seua vitalitat, la seua implicació cultural i social dins del poble i per la
+        voluntat de mantindre viva la tradició fallera, adaptant-la als nous temps sense perdre mai l'essència que la
+        caracteritza.
+      </p>
+      <br />
     </Fragment>
   </Hero>
 </Layout>

@@ -1,0 +1,143 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import HeroText from '~/components/widgets/HeroText.astro';
+
+const metadata = {
+  title: 'Representants - Falla Passeig',
+};
+
+const baseUrl = 'https://media.githubusercontent.com/media/fallapasseig/static/main/representants';
+
+const representants = [
+  { year: '2025', majorAward: '5é premi', infantilAward: '2n premi' },
+  { year: '2024', majorAward: '', infantilAward: '' },
+  { year: '2023', majorAward: '', infantilAward: '' },
+  { year: '2020-2022', majorAward: '', infantilAward: '' },
+  { year: '2019', majorAward: '', infantilAward: '' },
+  { year: '2018', majorAward: '', infantilAward: '' },
+  { year: '2017', majorAward: '', infantilAward: '' },
+  { year: '2016', majorAward: '', infantilAward: '' },
+  { year: '2015', majorAward: '', infantilAward: '' },
+  { year: '2014', majorAward: '', infantilAward: '' },
+  { year: '2013', majorAward: '', infantilAward: '' },
+  { year: '2012', majorAward: '', infantilAward: '' },
+];
+---
+
+<Layout metadata={metadata}>
+  <HeroText tagline="Falla Passeig" title="Representants">
+    <Fragment slot="content">
+      <div class="max-w-3xl mx-auto">
+        <p class="hidden sm:block mb-6 text-justify">
+          En el següent apartat trobareu els màxims representants de les Falles de la nostra comissió, tant els actuals
+          com tots aquells que han ostentat aquest càrrec al llarg dels anys. És un recorregut per la història recent de
+          la Falla Passeig, a través de les persones que han tingut l'honor de representar-la en cada exercici faller.
+        </p>
+        <p class="hidden sm:block mb-6 text-justify">
+          Els màxims representants simbolitzen els valors de la nostra comissió: la il·lusió, el compromís, el respecte
+          per la tradició i l'estima per la festa. Amb el seu somriure, la seua dedicació i el suport de les seues
+          famílies, viuen un any intens i inoblidable, ple d'emocions i moments que quedaran per sempre en la memòria de
+          la falla.
+        </p>
+        <p class="hidden sm:block mb-6 text-justify">
+          Esperem que gaudiu coneixent-los un poc més i compartint amb nosaltres l'orgull de tindre'ls com a
+          representants de la nostra comissió.
+        </p>
+      </div>
+    </Fragment>
+  </HeroText>
+
+  <section class="max-w-5xl mx-auto px-4 py-8">
+    {
+      representants.map((r) => (
+        <div class="mb-12">
+          <h2 class="text-3xl font-bold text-center mb-6 text-gray-900 dark:text-white">{r.year}</h2>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+            <div class="rounded-lg overflow-hidden shadow-lg border border-gray-200 dark:border-gray-800">
+              <div class="bg-gray-100 dark:bg-gray-800 overflow-hidden cursor-pointer" data-lightbox-trigger>
+                <img
+                  src={`${baseUrl}/${r.year}/major.jpg`}
+                  alt={`Fallera Major ${r.year}`}
+                  class="w-full h-auto"
+                  loading="lazy"
+                />
+              </div>
+              {r.majorAward && (
+                <div class="px-4 py-3 text-center bg-white dark:bg-gray-900">
+                  <span class="text-sm font-semibold text-yellow-600 dark:text-yellow-400">🏆 {r.majorAward}</span>
+                </div>
+              )}
+            </div>
+            <div class="rounded-lg overflow-hidden shadow-lg border border-gray-200 dark:border-gray-800">
+              <div class="bg-gray-100 dark:bg-gray-800 overflow-hidden cursor-pointer" data-lightbox-trigger>
+                <img
+                  src={`${baseUrl}/${r.year}/infantil.jpg`}
+                  alt={`Fallera Major Infantil ${r.year}`}
+                  class="w-full h-auto"
+                  loading="lazy"
+                />
+              </div>
+              {r.infantilAward && (
+                <div class="px-4 py-3 text-center bg-white dark:bg-gray-900">
+                  <span class="text-sm font-semibold text-yellow-600 dark:text-yellow-400">🏆 {r.infantilAward}</span>
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      ))
+    }
+  </section>
+
+  <!-- Lightbox modal -->
+  <div
+    id="lightbox"
+    class="fixed inset-0 z-50 hidden items-center justify-center bg-black/80 backdrop-blur-sm"
+    role="dialog"
+    aria-modal="true"
+  >
+    <button
+      id="lightbox-close"
+      class="absolute top-4 right-4 text-white text-4xl leading-none cursor-pointer hover:text-gray-300"
+      aria-label="Tancar">&times;</button
+    >
+    <img id="lightbox-img" class="max-h-[90vh] max-w-[90vw] rounded-lg shadow-2xl object-contain" alt="" />
+  </div>
+
+  <script>
+    function initLightbox() {
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = document.getElementById('lightbox-img') as HTMLImageElement;
+      const closeBtn = document.getElementById('lightbox-close');
+
+      document.querySelectorAll('[data-lightbox-trigger]').forEach((card) => {
+        card.addEventListener('click', () => {
+          const img = card.querySelector('img');
+          if (!img || !lightbox || !lightboxImg) return;
+          lightboxImg.src = img.src;
+          lightboxImg.alt = img.alt;
+          lightbox.classList.remove('hidden');
+          lightbox.classList.add('flex');
+        });
+      });
+
+      function close() {
+        if (!lightbox || !lightboxImg) return;
+        lightbox.classList.add('hidden');
+        lightbox.classList.remove('flex');
+        lightboxImg.src = '';
+      }
+
+      closeBtn?.addEventListener('click', close);
+      lightbox?.addEventListener('click', (e) => {
+        if (e.target === lightbox) close();
+      });
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') close();
+      });
+    }
+
+    initLightbox();
+    document.addEventListener('astro:after-swap', initLightbox);
+  </script>
+</Layout>

@@ -1,0 +1,96 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import HeroText from '~/components/widgets/HeroText.astro';
+
+const metadata = {
+  title: 'Llibrets - Falla Passeig',
+};
+
+const llibrets = [
+  {
+    year: 2025,
+    title: 'Arribar a bon port',
+    href: '/web/llibret-2025',
+    cover: 'https://media.githubusercontent.com/media/fallapasseig/static/main/llibret-2025/0000.jpg',
+  },
+  {
+    year: 2024,
+    title: 'Desconstruint Sorolla',
+    href: '/web/llibret-2024',
+    cover: 'https://media.githubusercontent.com/media/fallapasseig/static/main/llibret-2024/0000.jpg',
+  },
+];
+---
+
+<Layout metadata={metadata}>
+  <HeroText tagline="Falla Passeig" title="Llibrets">
+    <Fragment slot="content">
+      <div class="max-w-3xl mx-auto">
+        <p class="hidden sm:block mb-6 text-justify">
+          En aquest apartat trobareu els llibrets que la nostra comissió ha anat elaborant al llarg dels últims anys.
+          Cada un d'ells és el reflex del treball, la il·lusió i la dedicació de moltes persones que, any rere any,
+          contribueixen a donar forma a un dels elements més representatius de la festa fallera.
+        </p>
+        <p class="hidden sm:block mb-6 text-justify">
+          El llibret és molt més que una publicació: és memòria, cultura i identitat. A través dels seus textos,
+          il·lustracions i continguts, es recull la història de la falla, la crítica, l'enginy i l'esperit de la
+          comissió, deixant constància de tot allò que fa única cada edició.
+        </p>
+        <p class="hidden sm:block mb-6 text-justify">
+          Esperem que aquest recorregut pels llibrets dels darrers anys vos agrade i vos anime a llegir-los, a
+          descobrir-ne els detalls i a valorar la importància d'un element fonamental per a entendre i mantindre viva la
+          nostra tradició fallera.
+        </p>
+      </div>
+    </Fragment>
+  </HeroText>
+
+  <section class="max-w-5xl mx-auto px-4 py-8">
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+      {
+        llibrets.map((llibret) => (
+          <a
+            href={llibret.href}
+            class="group block rounded-lg overflow-hidden shadow-lg border border-gray-200 dark:border-gray-800 hover:shadow-xl transition-shadow duration-300"
+          >
+            <div class="aspect-[3/4] bg-gray-100 dark:bg-gray-800 overflow-hidden">
+              {llibret.cover ? (
+                <img
+                  src={llibret.cover}
+                  alt={`Portada llibret ${llibret.year}`}
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  loading="lazy"
+                />
+              ) : (
+                <div class="w-full h-full flex flex-col items-center justify-center text-gray-400 dark:text-gray-500">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="w-24 h-24 mb-4"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M3 19a9 9 0 0 1 9 0a9 9 0 0 1 9 0" />
+                    <path d="M3 6a9 9 0 0 1 9 0a9 9 0 0 1 9 0" />
+                    <path d="M3 6v13" />
+                    <path d="M12 6v13" />
+                    <path d="M21 6v13" />
+                  </svg>
+                  <span class="text-2xl font-bold">{llibret.year}</span>
+                </div>
+              )}
+            </div>
+            <div class="p-4 bg-white dark:bg-gray-900">
+              <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
+                {llibret.year} — {llibret.title}
+              </h3>
+            </div>
+          </a>
+        ))
+      }
+    </div>
+  </section>
+</Layout>
