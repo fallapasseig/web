@@ -8,6 +8,12 @@ const metadata = {
 
 const llibrets = [
   {
+    year: 2026,
+    title: 'Cascavells',
+    href: '/web/llibret-2026',
+    cover: 'https://media.githubusercontent.com/media/fallapasseig/static/main/llibret-2026/0000.jpg',
+  },
+  {
     year: 2025,
     title: 'Arribar a bon port',
     href: '/web/llibret-2025',
@@ -46,7 +52,7 @@ const llibrets = [
   </HeroText>
 
   <section class="max-w-5xl mx-auto px-4 py-8">
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-8">
       {
         llibrets.map((llibret) => (
           <a

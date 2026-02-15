@@ -1,0 +1,524 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+const metadata = {
+  title: 'Llibret 2026 - Cascavells',
+};
+
+const baseUrl = 'https://media.githubusercontent.com/media/fallapasseig/static/main/llibret-2026/';
+const imageFiles = [
+  '0000.jpg',
+  '0001.jpg',
+  '0002.png',
+  '0003.jpg',
+  '0004.png',
+  '0005.png',
+  '0006.png',
+  '0007.jpg',
+  '0008.jpg',
+  '0009.jpg',
+  '0010.jpg',
+  '0011.jpg',
+  '0012.jpg',
+  '0013.jpg',
+  '0014.jpg',
+  '0015.png',
+  '0016.jpg',
+  '0017.jpg',
+  '0018.jpg',
+  '0019.png',
+  '0020.jpg',
+  '0021.jpg',
+  '0022.png',
+  '0023.jpg',
+  '0024.jpg',
+  '0025.png',
+  '0026.jpg',
+  '0027.jpg',
+  '0028.png',
+  '0029.jpg',
+  '0030.jpg',
+  '0031.jpg',
+  '0032.jpg',
+  '0033.jpg',
+  '0034.png',
+  '0035.jpg',
+  '0036.png',
+  '0037.jpg',
+  '0038.jpg',
+  '0039.jpg',
+  '0040.jpg',
+  '0041.png',
+  '0042.jpg',
+  '0043.jpg',
+  '0044.jpg',
+  '0045.png',
+  '0046.jpg',
+  '0047.png',
+  '0048.png',
+  '0049.png',
+  '0050.png',
+  '0051.png',
+  '0052.png',
+  '0053.jpg',
+  '0054.jpg',
+  '0055.jpg',
+  '0056.jpg',
+  '0057.png',
+  '0058.jpg',
+  '0059.jpg',
+  '0060.png',
+  '0061.jpg',
+  '0062.jpg',
+  '0063.jpg',
+  '0064.jpg',
+  '0065.jpg',
+  '0066.jpg',
+  '0067.jpg',
+  '0068.jpg',
+  '0069.jpg',
+  '0070.jpg',
+  '0071.jpg',
+  '0072.jpg',
+  '0073.png',
+  '0074.jpg',
+  '0075.png',
+  '0076.png',
+  '0077.jpg',
+  '0078.png',
+  '0079.png',
+  '0080.png',
+  '0081.jpg',
+  '0082.jpg',
+  '0083.jpg',
+  '0084.jpg',
+  '0085.jpg',
+  '0086.jpg',
+  '0087.jpg',
+  '0088.jpg',
+  '0089.jpg',
+  '0090.jpg',
+  '0091.jpg',
+  '0092.jpg',
+  '0093.jpg',
+  '0094.jpg',
+  '0095.jpg',
+  '0096.jpg',
+  '0097.jpg',
+  '0098.jpg',
+  '0099.jpg',
+  '0100.jpg',
+  '0101.jpg',
+  '0102.jpg',
+  '0103.jpg',
+  '0104.jpg',
+  '0105.jpg',
+  '0106.jpg',
+  '0107.jpg',
+  '0108.jpg',
+  '0109.jpg',
+  '0110.jpg',
+  '0111.jpg',
+  '0112.jpg',
+  '0113.jpg',
+  '0114.jpg',
+  '0115.jpg',
+  '0116.jpg',
+  '0117.jpg',
+  '0118.jpg',
+  '0119.png',
+  '0120.jpg',
+  '0121.jpg',
+  '0122.jpg',
+  '0123.jpg',
+  '0124.jpg',
+  '0125.jpg',
+  '0126.jpg',
+  '0127.jpg',
+  '0128.jpg',
+  '0129.jpg',
+  '0130.jpg',
+  '0131.jpg',
+  '0132.jpg',
+  '0133.jpg',
+  '0134.jpg',
+  '0135.jpg',
+  '0136.jpg',
+  '0137.jpg',
+  '0138.jpg',
+  '0139.jpg',
+  '0140.jpg',
+  '0141.jpg',
+  '0142.jpg',
+  '0143.jpg',
+  '0144.jpg',
+  '0145.jpg',
+  '0146.jpg',
+  '0147.jpg',
+  '0148.jpg',
+  '0149.jpg',
+  '0150.jpg',
+  '0151.jpg',
+  '0152.jpg',
+  '0153.jpg',
+  '0154.jpg',
+  '0155.jpg',
+  '0156.jpg',
+  '0157.jpg',
+  '0158.jpg',
+  '0159.jpg',
+  '0160.jpg',
+  '0161.jpg',
+  '0162.jpg',
+  '0163.jpg',
+  '0164.jpg',
+  '0165.jpg',
+  '0166.jpg',
+  '0167.jpg',
+  '0168.jpg',
+  '0169.png',
+  '0170.png',
+  '0171.jpg',
+  '0172.jpg',
+  '0173.jpg',
+  '0174.jpg',
+  '0175.jpg',
+  '0176.jpg',
+  '0177.png',
+  '0178.jpg',
+  '0179.png',
+  '0180.png',
+  '0181.jpg',
+  '0182.jpg',
+  '0183.jpg',
+  '0184.jpg',
+  '0185.jpg',
+  '0186.jpg',
+  '0187.png',
+  '0188.jpg',
+  '0189.jpg',
+  '0190.jpg',
+  '0191.png',
+  '0192.png',
+  '0193.png',
+  '0194.png',
+  '0195.png',
+  '0196.png',
+  '0197.png',
+  '0198.png',
+  '0199.png',
+  '0200.png',
+  '0201.png',
+  '0202.png',
+  '0203.png',
+  '0204.png',
+  '0205.png',
+  '0206.png',
+  '0207.png',
+  '0208.png',
+  '0209.png',
+  '0210.png',
+  '0211.png',
+  '0212.png',
+  '0213.png',
+  '0214.png',
+  '0215.png',
+  '0216.png',
+  '0217.png',
+  '0218.png',
+  '0219.png',
+  '0220.jpg',
+  '0221.png',
+  '0222.png',
+  '0223.png',
+  '0224.png',
+  '0225.png',
+  '0226.png',
+  '0227.png',
+  '0228.png',
+  '0229.jpg',
+  '0230.png',
+  '0231.jpg',
+  '0232.jpg',
+  '0233.jpg',
+  '0234.jpg',
+  '0235.jpg',
+  '0236.jpg',
+  '0237.jpg',
+  '0238.jpg',
+  '0239.jpg',
+  '0240.jpg',
+  '0241.jpg',
+  '0242.jpg',
+  '0243.jpg',
+  '0244.jpg',
+  '0245.jpg',
+  '0246.jpg',
+  '0247.jpg',
+  '0248.jpg',
+  '0249.jpg',
+  '0250.jpg',
+  '0251.jpg',
+  '0252.jpg',
+  '0253.jpg',
+  '0254.png',
+  '0255.jpg',
+  '0256.jpg',
+  '0257.jpg',
+  '0258.png',
+  '0259.jpg',
+  '0260.jpg',
+  '0261.jpg',
+  '0262.png',
+  '0263.jpg',
+  '0264.jpg',
+  '0265.jpg',
+  '0266.jpg',
+  '0267.jpg',
+];
+---
+
+<Layout {metadata}>
+  <div id="flipbook-viewport">
+    <div id="flipbook-container">
+      <div id="flipbook">
+        {imageFiles.map((file) => <div class="page" style={`background-image:url(${baseUrl}${file})`} />)}
+      </div>
+    </div>
+    <div id="nav-controls">
+      <button id="prev-btn" aria-label="Pàgina anterior">&#9664;</button>
+      <span id="page-display"></span>
+      <button id="next-btn" aria-label="Pàgina següent">&#9654;</button>
+    </div>
+  </div>
+
+  <style is:global>
+    #flipbook-viewport {
+      width: 100%;
+      height: calc(100vh - 80px);
+      position: relative;
+      overflow: hidden;
+      background: #1a1a1a;
+      -webkit-user-select: none;
+      user-select: none;
+    }
+
+    #flipbook-container {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform-origin: center center;
+    }
+
+    #flipbook .page {
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-color: #fff;
+      cursor: pointer;
+      overflow: hidden;
+    }
+
+    #nav-controls {
+      position: absolute;
+      bottom: 15px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      z-index: 100;
+      background: rgba(0, 0, 0, 0.55);
+      padding: 8px 16px;
+      border-radius: 24px;
+      -webkit-backdrop-filter: blur(4px);
+      backdrop-filter: blur(4px);
+    }
+
+    #nav-controls button {
+      background: rgba(255, 255, 255, 0.9);
+      border: none;
+      border-radius: 50%;
+      width: 36px;
+      height: 36px;
+      font-size: 16px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background-color 0.2s;
+      color: #333;
+      line-height: 1;
+    }
+
+    #nav-controls button:hover {
+      background: #fff;
+    }
+
+    #nav-controls button:disabled {
+      opacity: 0.4;
+      cursor: default;
+    }
+
+    #page-display {
+      color: #fff;
+      font-size: 13px;
+      min-width: 70px;
+      text-align: center;
+      font-family: monospace;
+    }
+  </style>
+
+  <script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script is:inline src="/web/turnjs/turn.html4.min.js"></script>
+  <script is:inline>
+    $(function () {
+      var $book = $('#flipbook');
+      var $container = $('#flipbook-container');
+      var $viewport = $('#flipbook-viewport');
+      var BASE_URL = 'https://media.githubusercontent.com/media/fallapasseig/static/main/llibret-2026/';
+      var isMobile = 'ontouchstart' in window;
+      var programmaticTurn = false;
+
+      // Load first image to get its native dimensions for turn.js init
+      var probe = new Image();
+      probe.onload = function () {
+        initFlipbook(probe.naturalWidth * 2, probe.naturalHeight);
+      };
+      probe.onerror = function () {
+        initFlipbook(2828, 2000);
+      };
+      probe.src = BASE_URL + '0000.jpg';
+
+      function initFlipbook(BOOK_WIDTH, BOOK_HEIGHT) {
+        $book.turn({
+          width: BOOK_WIDTH,
+          height: BOOK_HEIGHT,
+          autoCenter: false,
+          acceleration: true,
+          gradients: true,
+          elevation: 50,
+          duration: 800,
+          display: $(window).width() < 900 ? 'single' : 'double',
+          when: {
+            turning: function (e) {
+              if (isMobile && !programmaticTurn) {
+                e.preventDefault();
+              }
+              programmaticTurn = false;
+            },
+            turned: function () {
+              updatePageDisplay();
+              updateButtons();
+            },
+          },
+        });
+
+        $(window).on('resize', resize);
+        resize();
+      }
+
+      function updatePageDisplay() {
+        var page = $book.turn('page');
+        var pages = $book.turn('pages');
+        $('#page-display').text(page + ' / ' + pages);
+      }
+
+      function updateButtons() {
+        var page = $book.turn('page');
+        var pages = $book.turn('pages');
+        $('#prev-btn').prop('disabled', page <= 1);
+        $('#next-btn').prop('disabled', page >= pages);
+      }
+
+      function resize() {
+        var vW = $viewport.width();
+        var vH = $viewport.height();
+
+        var mode = vW < 900 ? 'single' : 'double';
+
+        if ($book.turn('display') !== mode) {
+          $book.turn('display', mode);
+        }
+
+        var bW = $book.width();
+        var bH = $book.height();
+
+        var scaleX = vW / bW;
+        var scaleY = vH / bH;
+        var scale;
+
+        if (mode === 'single') {
+          // bW is the full double-spread width; one visible page is half
+          scale = Math.min(vW / (bW / 2), vH / bH) * 0.92;
+        } else {
+          scale = Math.min(scaleX, scaleY) * 0.92;
+        }
+
+        $container.css({
+          width: bW,
+          height: bH,
+          transform: 'translate(-50%, -50%) scale(' + scale + ')',
+        });
+
+        updatePageDisplay();
+        updateButtons();
+      }
+
+      // Navigation buttons
+      $('#prev-btn').on('click', function (e) {
+        e.stopPropagation();
+        programmaticTurn = true;
+        $book.turn('previous');
+      });
+
+      $('#next-btn').on('click', function (e) {
+        e.stopPropagation();
+        programmaticTurn = true;
+        $book.turn('next');
+      });
+
+      // Keyboard navigation
+      $(document).on('keydown', function (e) {
+        if (e.keyCode === 37) {
+          programmaticTurn = true;
+          $book.turn('previous');
+        } else if (e.keyCode === 39) {
+          programmaticTurn = true;
+          $book.turn('next');
+        }
+      });
+
+      // Touch swipe support
+      var touchStartX = 0;
+      var touchStartY = 0;
+
+      $viewport[0].addEventListener(
+        'touchstart',
+        function (e) {
+          touchStartX = e.touches[0].clientX;
+          touchStartY = e.touches[0].clientY;
+        },
+        { passive: true }
+      );
+
+      $viewport[0].addEventListener(
+        'touchend',
+        function (e) {
+          var dx = e.changedTouches[0].clientX - touchStartX;
+          var dy = e.changedTouches[0].clientY - touchStartY;
+
+          if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 50) {
+            programmaticTurn = true;
+            if (dx > 0) {
+              $book.turn('previous');
+            } else {
+              $book.turn('next');
+            }
+          }
+        },
+        { passive: true }
+      );
+    });
+  </script>
+</Layout>
