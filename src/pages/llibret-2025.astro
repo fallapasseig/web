@@ -399,7 +399,7 @@ const imageFiles = [
           gradients: true,
           elevation: 50,
           duration: 800,
-          display: $(window).width() < 900 ? 'single' : 'double',
+          display: $(window).width() < 1600 ? 'single' : 'double',
           when: {
             turning: function (e) {
               if (isMobile && !programmaticTurn) {
@@ -435,7 +435,7 @@ const imageFiles = [
         var vW = $viewport.width();
         var vH = $viewport.height();
 
-        var mode = vW < 900 ? 'single' : 'double';
+        var mode = vW < 1600 ? 'single' : 'double';
 
         if ($book.turn('display') !== mode) {
           $book.turn('display', mode);
