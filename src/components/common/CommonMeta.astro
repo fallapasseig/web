@@ -4,5 +4,25 @@ import { getAsset } from '~/utils/permalinks';
 
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#007cdc" />
 
 <link rel="sitemap" href={getAsset('/sitemap-index.xml')} />
+
+<script
+  type="application/ld+json"
+  set:html={JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: 'Falla Passeig',
+    url: 'https://fallapasseig.es/web',
+    description: 'Falla Passeig de Tavernes de la Valldigna',
+    foundingDate: '1984',
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Tavernes de la Valldigna',
+      addressRegion: 'València',
+      addressCountry: 'ES',
+    },
+    sameAs: ['https://twitter.com/FallaPasseig'],
+  })}
+/>

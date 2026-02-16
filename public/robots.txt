@@ -1,2 +1,4 @@
 User-agent: *
 Disallow:
+
+Sitemap: https://fallapasseig.es/web/sitemap-index.xml
