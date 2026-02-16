@@ -1,0 +1,37 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import HeroText from '~/components/widgets/HeroText.astro';
+
+const metadata = {
+  title: 'Gastronomia - Falla Passeig',
+};
+---
+
+<Layout metadata={metadata}>
+  <HeroText title="Gastronomia">
+    <Fragment slot="content">
+      <div class="max-w-3xl mx-auto">
+        <p class="mb-6 text-justify">
+          Descobreix la rica tradició gastronòmica de Tavernes de la Valldigna i la nostra falla.
+        </p>
+      </div>
+    </Fragment>
+  </HeroText>
+
+  <section class="max-w-5xl mx-auto px-4 py-8">
+    <div class="prose dark:prose-invert max-w-none">
+      <div
+        class="_df_book"
+        height="auto"
+        webgl="true"
+        source="https://media.githubusercontent.com/media/fallapasseig/static/main/gastronomia.pdf"
+        id="df_manual_book"
+        view-mode="single"
+        data-config='{"pageMode": 1}'
+      >
+      </div>
+      <script src="/web/dflip/js/libs/jquery.min.js" type="text/javascript"></script>
+      <script src="/web/dflip/js/dflip.min.js" type="text/javascript"></script>
+    </div>
+  </section>
+</Layout>

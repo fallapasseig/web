@@ -9,7 +9,6 @@ export const headerData = {
     { text: 'Llibrets', href: '/web/llibrets' },
     { text: 'Història', href: '/web/historia' },
     { text: 'Programació 2026', href: '/web/programacio-2026' },
-    { text: 'ODS', href: '/web/ods' },
     { text: 'Turisme', href: '/web/turisme' },
   ],
 };
