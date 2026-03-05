@@ -27,6 +27,46 @@ const llibrets = [
     href: '/web/llibret-2024',
     cover: 'https://media.githubusercontent.com/media/fallapasseig/static/main/llibret-2024/0000.jpg',
   },
+  {
+    year: 2023,
+    href: '/web/llibret-2023',
+  },
+  {
+    year: 2022,
+    href: '/web/llibret-2022',
+  },
+  {
+    year: 2020,
+    href: '/web/llibret-2020',
+  },
+  {
+    year: 2019,
+    href: '/web/llibret-2019',
+  },
+  {
+    year: 2018,
+    href: '/web/llibret-2018',
+  },
+  {
+    year: 2017,
+    href: '/web/llibret-2017',
+  },
+  {
+    year: 2016,
+    href: '/web/llibret-2016',
+  },
+  {
+    year: 2015,
+    href: '/web/llibret-2015',
+  },
+  {
+    year: 2014,
+    href: '/web/llibret-2014',
+  },
+  {
+    year: 2013,
+    href: '/web/llibret-2013',
+  },
 ];
 ---
 
@@ -93,7 +133,8 @@ const llibrets = [
             </div>
             <div class="p-4 bg-white dark:bg-gray-900">
               <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
-                {llibret.year} — {llibret.title}
+                {llibret.year}
+                {llibret.title ? ` — ${llibret.title}` : ''}
               </h3>
             </div>
           </a>
