@@ -28,9 +28,12 @@ const sections = [
     description:
       'Objectius de Desenvolupament Sostenible. El nostre compromís amb la sostenibilitat i el medi ambient.',
     href: '/web/ods',
-    icon: '🌍',
+    image: imgOds,
   },
 ];
+
+import imgOds from '~/assets/images/ods/E_WEB_17.png';
+import { Image } from 'astro:assets';
 ---
 
 <Layout metadata={metadata}>
@@ -53,7 +56,13 @@ const sections = [
             href={section.href}
             class="group flex flex-col md:flex-row items-start md:items-center gap-4 p-6 rounded-lg border border-gray-200 dark:border-gray-800 shadow hover:shadow-xl transition-all duration-300 hover:scale-[1.02]"
           >
-            <div class="flex-shrink-0 text-6xl">{section.icon}</div>
+            <div class="flex-shrink-0">
+              {section.image ? (
+                <Image src={section.image} alt={section.title} class="w-24 h-24 object-contain" />
+              ) : (
+                <div class="text-6xl">{section.icon}</div>
+              )}
+            </div>
             <div class="flex-grow">
               <h2 class="text-2xl font-bold text-gray-900 dark:text-white group-hover:text-accent transition-colors mb-2">
                 {section.title}

@@ -1,0 +1,72 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import HeroText from '~/components/widgets/HeroText.astro';
+import Image from '~/components/common/Image.astro';
+import { Icon } from 'astro-icon/components';
+
+const metadata = {
+  title: 'Esdeveniments Gastronòmics - Falla Passeig',
+  description: 'Descobreix els esdeveniments gastronòmics de la Falla Passeig. Concursos, dinars i sopars de germanor.',
+};
+---
+
+<Layout metadata={metadata}>
+  <HeroText title="Esdeveniments Gastronòmics">
+    <Fragment slot="content">
+      <div class="max-w-3xl mx-auto">
+        <p class="mb-6 text-justify">
+          La Falla Passeig organitza al llarg de l'any diversos esdeveniments on la gastronomia és la protagonista. Des
+          dels tradicionals concursos de paelles fins als dinars i sopars al casal, ací trobaràs tota la informació.
+        </p>
+      </div>
+    </Fragment>
+  </HeroText>
+
+  <section class="max-w-5xl mx-auto px-4 py-12">
+    <!-- Secció Galeria d'Imatges -->
+    <div class="mb-16">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="flex flex-col gap-3">
+          <div
+            class="aspect-square bg-gray-100 dark:bg-gray-800 rounded-xl flex flex-col items-center justify-center overflow-hidden shadow-sm border border-gray-200 dark:border-gray-700 relative group"
+          >
+            <Image
+              src="~/assets/images/esdeveniment-1.jpeg"
+              alt="Esdeveniment Gastronòmic 1"
+              class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            />
+          </div>
+          <a
+            href="https://www.facebook.com/share/v/16tG2b9Th1/?mibextid=wwXIfr"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex items-center justify-center gap-2 text-sm text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 font-medium transition-colors"
+          >
+            <Icon name="tabler:brand-facebook" class="w-5 h-5" />
+            Veure vídeo a Facebook
+          </a>
+        </div>
+
+        <div
+          class="aspect-square bg-gray-100 dark:bg-gray-800 rounded-xl flex flex-col items-center justify-center overflow-hidden shadow-sm border border-gray-200 dark:border-gray-700 relative group"
+        >
+          <Image
+            src="~/assets/images/esdeveniment-2.jpeg"
+            alt="Esdeveniment Gastronòmic 2"
+            class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+          />
+        </div>
+
+        <div
+          class="aspect-square bg-gray-100 dark:bg-gray-800 rounded-xl flex flex-col items-center justify-center overflow-hidden shadow-sm border border-gray-200 dark:border-gray-700 relative group"
+        >
+          <Image
+            src="~/assets/images/esdeveniment-3.jpeg"
+            alt="Esdeveniment Gastronòmic 3"
+            class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
