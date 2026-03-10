@@ -1,0 +1,19 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import HeroText from '~/components/widgets/HeroText.astro';
+
+const metadata = {
+  title: 'Monument Infantil - Falla Passeig',
+  description: 'Explicació i detalls del monument infantil de la Falla Passeig.',
+};
+---
+
+<Layout metadata={metadata}>
+  <HeroText title="Monument Infantil">
+    <Fragment slot="content">
+      <div class="max-w-3xl mx-auto text-justify">
+        <p class="mb-6">Ben aviat podràs consultar tota l'explicació i els detalls del nostre monument infantil.</p>
+      </div>
+    </Fragment>
+  </HeroText>
+</Layout>

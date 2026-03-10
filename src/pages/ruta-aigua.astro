@@ -1,0 +1,113 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import HeroText from '~/components/widgets/HeroText.astro';
+import { Image } from 'astro:assets';
+
+import img01 from '~/assets/images/ruta-aigua/01.jpeg';
+import img02 from '~/assets/images/ruta-aigua/02.jpeg';
+import img03 from '~/assets/images/ruta-aigua/03.jpeg';
+import img04 from '~/assets/images/ruta-aigua/04.jpeg';
+import img05 from '~/assets/images/ruta-aigua/05.jpeg';
+import img06 from '~/assets/images/ruta-aigua/06.jpeg';
+
+const images = [
+  { src: img01, alt: "Ruta de l'aigua 1" },
+  { src: img02, alt: "Ruta de l'aigua 2" },
+  { src: img03, alt: "Ruta de l'aigua 3" },
+  { src: img04, alt: "Ruta de l'aigua 4" },
+  { src: img05, alt: "Ruta de l'aigua 5" },
+  { src: img06, alt: "Ruta de l'aigua 6" },
+];
+
+const metadata = {
+  title: "La ruta de l'aigua - Falla Passeig",
+  description: "Descobreix la ruta de l'aigua a Tavernes de la Valldigna.",
+};
+---
+
+<Layout metadata={metadata}>
+  <HeroText title="La ruta de l'aigua">
+    <Fragment slot="content">
+      <div class="max-w-3xl mx-auto">
+        <p class="mb-6 text-justify">
+          La ruta de l'aigua és un recorregut fascinant per la història i el patrimoni hidràulic de Tavernes de la
+          Valldigna. A través d'aquesta ruta, podreu descobrir la importància de l'aigua per al desenvolupament de la
+          nostra localitat.
+        </p>
+      </div>
+    </Fragment>
+  </HeroText>
+
+  <section class="max-w-5xl mx-auto px-4 py-8">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 items-center">
+      {
+        images.map((img) => (
+          <div class="rounded-lg overflow-hidden shadow-lg border border-gray-200 dark:border-gray-800 transition-transform duration-300 hover:scale-[1.02]">
+            <div class="bg-gray-100 dark:bg-gray-800 overflow-hidden cursor-pointer aspect-[4/3]" data-lightbox-trigger>
+              <Image src={img.src} alt={img.alt} class="w-full h-full object-cover object-center" loading="lazy" />
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <!-- Lightbox modal -->
+  <div
+    id="lightbox"
+    class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/80 backdrop-blur-sm"
+    role="dialog"
+    aria-modal="true"
+  >
+    <button
+      id="lightbox-close"
+      class="absolute top-4 right-4 text-white text-5xl leading-none cursor-pointer hover:text-gray-300 z-[110]"
+      aria-label="Tancar">&times;</button
+    >
+    <img id="lightbox-img" class="max-h-[85vh] max-w-[90vw] rounded-lg shadow-2xl object-contain" alt="" />
+  </div>
+
+  <script>
+    function initLightbox() {
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = document.getElementById('lightbox-img') as HTMLImageElement;
+      const closeBtn = document.getElementById('lightbox-close');
+
+      document.querySelectorAll('[data-lightbox-trigger]').forEach((card) => {
+        card.addEventListener('click', () => {
+          const img = card.querySelector('img');
+          if (!img || !lightbox || !lightboxImg) return;
+          lightboxImg.src = img.src;
+          lightboxImg.alt = img.alt;
+          lightbox.classList.remove('hidden');
+          lightbox.classList.add('flex');
+          document.body.style.overflow = 'hidden'; // Prevent scroll
+        });
+      });
+
+      function close() {
+        if (!lightbox || !lightboxImg) return;
+        lightbox.classList.add('hidden');
+        lightbox.classList.remove('flex');
+        lightboxImg.src = '';
+        document.body.style.overflow = ''; // Restore scroll
+      }
+
+      closeBtn?.addEventListener('click', (e) => {
+        e.stopPropagation();
+        close();
+      });
+      lightbox?.addEventListener('click', (e) => {
+        if (e.target === lightbox) close();
+      });
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') close();
+      });
+    }
+
+    // Initialize on load
+    initLightbox();
+    // Re-initialize after view transitions
+    document.addEventListener('astro:after-swap', initLightbox);
+  </script>
+</Layout>
