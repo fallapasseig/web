@@ -1,87 +1,145 @@
 ---
+import { Image } from 'astro:assets';
 import Layout from '~/layouts/PageLayout.astro';
 import HeroText from '~/components/widgets/HeroText.astro';
-import Content from '~/components/widgets/Content.astro';
+
+import img01 from '~/assets/images/historia/01.jpeg';
+import img02 from '~/assets/images/historia/02.jpeg';
+import img03 from '~/assets/images/historia/03.jpeg';
+import img04 from '~/assets/images/historia/04.jpeg';
+import representants2025 from '~/assets/images/historia/representants-2025.jpg';
+import falla1985 from '~/assets/images/imatge-historia.png';
 
 const metadata = {
   title: 'Història - Falla Passeig',
   description:
     "Història de la Falla Passeig de Tavernes de la Valldigna des de la seua fundació el 1984 fins a l'actualitat.",
 };
+const images = [
+  { src: img01, alt: 'Història 1' },
+  { src: img02, alt: 'Història 2' },
+  { src: img03, alt: 'Història 3' },
+  { src: img04, alt: 'Història 4' },
+  { src: falla1985, alt: 'Falla 1985' },
+  { src: representants2025, alt: 'Representants Falla Passeig 2025' },
+];
 ---
 
 <Layout metadata={metadata}>
-  <HeroText tagline="Història" title="Fundació de la Falla" />
-
-  <Content
-    isReversed
-    image={{
-      src: '~/assets/images/monument-2025.png',
-      alt: 'Monument Faller',
-    }}
-  >
+  <HeroText tagline="Història" title="Fundació de la Falla">
     <Fragment slot="content">
-      <p class="mb-6 text-justify">
-        La fundació de la Falla Passeig de Tavernes de la Valldigna és un relat que naix de l’esforç, la il·lusió i el
-        compromís d’un grup de veïns del poble que, a finals del segle XX, somiaven amb continuar cultivant a la seua
-        localitat l’esperit festiu, social i cultural de les Falles.
-      </p>
-      <br />
-      <p class="mb-6 text-justify">
-        Tot va començar l’any 1984, quan un grup d’amics i veïns que solien reunir-se al Passeig del País Valencià van
-        decidir que Tavernes necessitava una falla que representara la seua gent i donara vida a la cultura popular de
-        la zona. Units per la passió per les tradicions valencianes, van començar a donar forma a una idea que, amb el
-        pas del temps, es convertiria en una realitat ben arrelada al poble. Les primeres reunions es van celebrar de
-        manera senzilla, en cases particulars i en bars del voltant, espais on es compartien idees, inquietuds i
-        projectes amb un objectiu comú: crear una comissió fallera que fora punt de trobada, convivència i festa.
-      </p>
+      <div class="max-w-3xl mx-auto">
+        <p class="mb-6 text-justify">
+          La fundació de la Falla Passeig de Tavernes de la Valldigna és un relat que naix de l’esforç, la il·lusió i el
+          compromís d’un grup de veïns del poble que, a finals del segle XX, somiaven amb continuar cultivant a la seua
+          localitat l’esperit festiu, social i cultural de les Falles.
+        </p>
+        <p class="mb-6 text-justify">
+          Tot va començar l’any 1984, quan un grup d’amics i veïns que solien reunir-se al Passeig del País Valencià van
+          decidir que Tavernes necessitava una falla que representara la seua gent i donara vida a la cultura popular de
+          la zona. Units per la passió per les tradicions valencianes, van començar a donar forma a una idea que, amb el
+          pas del temps, es convertiria en una realitat ben arrelada al poble. Les primeres reunions es van celebrar de
+          manera senzilla, en cases particulars i en bars del voltant, espais on es compartien idees, inquietuds i
+          projectes amb un objectiu comú: crear una comissió fallera que fora punt de trobada, convivència i festa.
+        </p>
+        <p class="mb-6 text-justify">
+          Una de les primeres fites importants va ser la tria del nom de la comissió, Falla Passeig de Tavernes de la
+          Valldigna, en honor al passeig que era el cor del barri i un autèntic símbol de convivència. Aquest nom
+          evocava l’esperit de comunitat i l’orgull local que tots compartien, i que des del primer moment va definir la
+          identitat de la falla.
+        </p>
+        <p class="mb-6 text-justify">
+          Els primers anys no van ser senzills. Com tota comissió nova, la Falla Passeig havia de fer-se un lloc dins de
+          les tradicions i la vida cultural de Tavernes. Malgrat les dificultats, la il·lusió i l’esforç col·lectiu van
+          donar fruit, i l’any 1985 el poble va contemplar amb emoció com s’alçava el primer monument faller al Passeig
+          del País Valencià. Amb aquell primer monument naixia una tradició que ha perdurat fins als nostres dies.
+        </p>
+        <p class="mb-6 text-justify">
+          Des d’aquell moment, la Falla Passeig es va anar consolidant com una de les comissions més actives i
+          destacades de la localitat. Amb el pas del temps, la seua activitat es va ampliar amb concursos, cavalcades,
+          actes culturals i propostes festives de tot tipus, sempre amb la voluntat de fomentar la participació del
+          veïnat i mantindre viu l’esperit de germanor que va inspirar els seus inicis.
+        </p>
+        <p class="mb-6 text-justify">
+          Hui, la Falla Passeig de Tavernes de la Valldigna és un orgull per al poble i un reflex fidel de la seua
+          identitat i les seues tradicions. Any rere any, la flama de la festa continua encesa gràcies a l’esforç, la
+          dedicació i l’estima d’una comunitat unida per l’amor a la cultura valenciana i per unes Falles que formen
+          part indissoluble de la seua història.
+        </p>
+      </div>
     </Fragment>
-  </Content>
+  </HeroText>
 
-  <Content
-    image={{
-      src: '~/assets/images/imatge-historia.png',
-      alt: 'Imatge històrica',
-    }}
-  >
-    <Fragment slot="content">
-      <p class="mb-6 text-justify">
-        Una de les primeres fites importants va ser la tria del nom de la comissió, Falla Passeig de Tavernes de la
-        Valldigna, en honor al passeig que era el cor del barri i un autèntic símbol de convivència. Aquest nom evocava
-        l’esperit de comunitat i l’orgull local que tots compartien, i que des del primer moment va definir la identitat
-        de la falla.
-      </p>
-      <br />
-      <p class="mb-6 text-justify">
-        Els primers anys no van ser senzills. Com tota comissió nova, la Falla Passeig havia de fer-se un lloc dins de
-        les tradicions i la vida cultural de Tavernes. Malgrat les dificultats, la il·lusió i l’esforç col·lectiu van
-        donar fruit, i l’any 1985 el poble va contemplar amb emoció com s’alçava el primer monument faller al Passeig
-        del País Valencià. Amb aquell primer monument naixia una tradició que ha perdurat fins als nostres dies.
-      </p>
-    </Fragment>
-  </Content>
+  <section class="max-w-5xl mx-auto px-4 py-8">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 items-center">
+      {
+        images.map((img) => (
+          <div class="rounded-lg overflow-hidden shadow-lg border border-gray-200 dark:border-gray-800 transition-transform duration-300 hover:scale-[1.02]">
+            <div class="bg-gray-100 dark:bg-gray-800 overflow-hidden cursor-pointer aspect-[4/3]" data-lightbox-trigger>
+              <Image src={img.src} alt={img.alt} class="w-full h-full object-cover object-center" loading="lazy" />
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </section>
 
-  <Content
-    isReversed
-    image={{
-      src: '~/assets/images/representants-2025.jpg',
-      alt: 'Representants Falla Passeig',
-    }}
+  <!-- Lightbox modal -->
+  <div
+    id="lightbox"
+    class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/80 backdrop-blur-sm"
+    role="dialog"
+    aria-modal="true"
   >
-    <Fragment slot="content">
-      <p class="mb-6 text-justify">
-        Des d’aquell moment, la Falla Passeig es va anar consolidant com una de les comissions més actives i destacades
-        de la localitat. Amb el pas del temps, la seua activitat es va ampliar amb concursos, cavalcades, actes
-        culturals i propostes festives de tot tipus, sempre amb la voluntat de fomentar la participació del veïnat i
-        mantindre viu l’esperit de germanor que va inspirar els seus inicis.
-      </p>
-      <br />
-      <p class="mb-6 text-justify">
-        Hui, la Falla Passeig de Tavernes de la Valldigna és un orgull per al poble i un reflex fidel de la seua
-        identitat i les seues tradicions. Any rere any, la flama de la festa continua encesa gràcies a l’esforç, la
-        dedicació i l’estima d’una comunitat unida per l’amor a la cultura valenciana i per unes Falles que formen part
-        indissoluble de la seua història.
-      </p>
-    </Fragment>
-  </Content>
+    <button
+      id="lightbox-close"
+      class="absolute top-4 right-4 text-white text-5xl leading-none cursor-pointer hover:text-gray-300 z-[110]"
+      aria-label="Tancar">&times;</button
+    >
+    <img id="lightbox-img" class="max-h-[85vh] max-w-[90vw] rounded-lg shadow-2xl object-contain" alt="" />
+  </div>
+
+  <script>
+    function initLightbox() {
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = document.getElementById('lightbox-img') as HTMLImageElement;
+      const closeBtn = document.getElementById('lightbox-close');
+
+      document.querySelectorAll('[data-lightbox-trigger]').forEach((card) => {
+        card.addEventListener('click', () => {
+          const img = card.querySelector('img');
+          if (!img || !lightbox || !lightboxImg) return;
+          lightboxImg.src = img.src;
+          lightboxImg.alt = img.alt;
+          lightbox.classList.remove('hidden');
+          lightbox.classList.add('flex');
+          document.body.style.overflow = 'hidden'; // Prevent scroll
+        });
+      });
+
+      function close() {
+        if (!lightbox || !lightboxImg) return;
+        lightbox.classList.add('hidden');
+        lightbox.classList.remove('flex');
+        lightboxImg.src = '';
+        document.body.style.overflow = ''; // Restore scroll
+      }
+
+      closeBtn?.addEventListener('click', (e) => {
+        e.stopPropagation();
+        close();
+      });
+      lightbox?.addEventListener('click', (e) => {
+        if (e.target === lightbox) close();
+      });
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') close();
+      });
+    }
+
+    // Initialize on load
+    initLightbox();
+    // Re-initialize after view transitions
+    document.addEventListener('astro:after-swap', initLightbox);
+  </script>
 </Layout>
