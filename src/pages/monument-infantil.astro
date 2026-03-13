@@ -1,6 +1,19 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
 import HeroText from '~/components/widgets/HeroText.astro';
+import { Image } from 'astro:assets';
+
+import mi2026 from '~/assets/images/mi-2026.jpeg';
+
+const audios = [
+  { lang: 'Valencià', href: 'https://on.soundcloud.com/MjB5b42CyStcurFT1l', flag: '🏠' },
+  { lang: 'Castellano', href: 'https://on.soundcloud.com/hII22GEfmM7z9IyqnN', flag: '🇪🇸' },
+  { lang: 'English', href: 'https://on.soundcloud.com/kvxHRIo7T2lYruq3WY', flag: '🇬🇧' },
+  { lang: 'Français', href: 'https://on.soundcloud.com/nAKAFCsS9sC93O1Z3h', flag: '🇫🇷' },
+  { lang: 'Deutsch', href: 'https://on.soundcloud.com/1U6zN7aIdo6vHwYKBh', flag: '🇩🇪' },
+  { lang: 'Italiano', href: 'https://on.soundcloud.com/C5KobPeDnYV078Q5Ue', flag: '🇮🇹' },
+  { lang: '日本語', href: 'https://on.soundcloud.com/dmK5VPiNpLaHU1TnYf', flag: '🇯🇵' },
+];
 
 const metadata = {
   title: 'Monument Infantil - Falla Passeig',
@@ -9,11 +22,45 @@ const metadata = {
 ---
 
 <Layout metadata={metadata}>
-  <HeroText title="Monument Infantil">
-    <Fragment slot="content">
-      <div class="max-w-3xl mx-auto text-justify">
-        <p class="mb-6">Ben aviat podràs consultar tota l'explicació i els detalls del nostre monument infantil.</p>
+  <HeroText title="Monument Infantil" />
+
+  <section class="max-w-5xl mx-auto px-4 py-8">
+    <p class="mb-4 text-center text-muted dark:text-slate-400">
+      Pots escoltar la descripció del nostre monument infantil en diferents idiomes.
+    </p>
+
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-4 mb-12">
+      {
+        audios.map((t) => (
+          <a
+            href={t.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group flex flex-col items-center p-4 rounded-lg border border-gray-200 dark:border-gray-800 shadow hover:shadow-lg transition-shadow duration-300"
+          >
+            <span class="text-4xl mb-2">{t.flag}</span>
+            <span class="text-sm font-semibold text-gray-900 dark:text-white group-hover:text-accent transition-colors">
+              {t.lang}
+            </span>
+          </a>
+        ))
+      }
+    </div>
+
+    <div class="max-w-3xl mx-auto text-justify">
+      <p class="mb-6">
+        Apropa’t a la falla i mira bé totes les escenes. Segur que descobriràs moltes coses divertides! Llig la crítica
+        per a entendre la història i, si vols, també pots escoltar l’explicació del monument. L’àudio està disponible en
+        valencià i en altres idiomes. Esperem que la disfrutes molt!.
+      </p>
+    </div>
+
+    <div class="mt-12 flex justify-center">
+      <div
+        class="max-w-4xl w-full rounded-lg overflow-hidden shadow-lg border border-gray-200 dark:border-gray-800 transition-transform duration-300 hover:scale-[1.01]"
+      >
+        <Image src={mi2026} alt="Monument Infantil 2026" class="w-full h-auto object-contain" loading="lazy" />
       </div>
-    </Fragment>
-  </HeroText>
+    </div>
+  </section>
 </Layout>
